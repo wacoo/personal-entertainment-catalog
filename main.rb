@@ -10,6 +10,9 @@ class Main
     puts 'SELECT OPTIONS (1 - 10)'
     puts ''
     # add options here
+    puts 'List all books'
+    puts 'List all labels (e.g. 'Gift', 'New')'
+    puts 'Add a book'
     puts '  0) Exit'
     puts ''
     print 'OPTION:> '
