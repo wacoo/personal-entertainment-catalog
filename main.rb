@@ -11,7 +11,7 @@ class Main
     puts ''
     # add options here
     puts 'List all books'
-    puts 'List all labels (e.g. 'Gift', 'New')'
+    puts 'List all labels (e.g. "Gift", "New")'
     puts 'Add a book'
     puts '  0) Exit'
     puts ''
