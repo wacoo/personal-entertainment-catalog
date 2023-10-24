@@ -18,8 +18,9 @@ class Item
 
     false
   end
-end
 
-# item = Item.new("2003-03-19")
-# puts item.can_be_archived?
-# puts(item)
+  # method for archive
+  def move_to_archive
+    @archived = true if can_be_archived?
+  end
+end
