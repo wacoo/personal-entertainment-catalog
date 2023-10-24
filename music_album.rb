@@ -6,9 +6,8 @@ class MusicAlbum
   end
 
   def can_be_archived?
-    if super.can_be_archived? # Assuming there is a parent class with this method
-      return true if @on_spotify == true
-    end
+    return true if super.can_be_archived? && (@on_spotify == true) # Assuming there is a parent class with this method
+
     false
   end
 end
