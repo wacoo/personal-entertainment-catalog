@@ -10,10 +10,13 @@ class Main
     puts 'SELECT OPTIONS (1 - 10)'
     puts ''
     puts '1) List all authors'
-    puts '2) List all games'
+    puts '2) List all games'    
+    puts '3) List all books'
+    puts '4) List all labels'
     # add options here
     puts '8) Create an author'
-    puts '9) Create a game'
+    puts '9) Create a game'    
+    puts '10) Add a book'
     # add options here
     puts '0) Exit'
     puts ''
