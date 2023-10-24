@@ -52,7 +52,7 @@ class App
   end
 
   def list_all_authors
-    if @authors.length.zero?
+    if @authors.empty?
       puts ''
       puts '😭 No author added! 😭'
     end
@@ -62,7 +62,7 @@ class App
   end
 
   def list_all_games
-    if @games.length.zero?
+    if @games.empty?
       puts ''
       puts '😭 No game added! 😭'
     end
@@ -86,12 +86,12 @@ class App
     when 1
       list_all_authors
     when 2
-      list_all_games      
+      list_all_games
     when 8
       create_author
     when 9
       create_game
-    when 
+    when 0
       exit
     else
       puts 'Wrong input!'
