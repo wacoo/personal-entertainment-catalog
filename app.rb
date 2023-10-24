@@ -18,7 +18,7 @@ class App
 
     author = Author.new(fname, lname)
     @authors << author
-    return author
+    author
   end
 
   def create_game
@@ -40,17 +40,15 @@ class App
 
     multiplayer = false
     game = nil
-    if multi.upcase == 'Y'
-      multiplayer = true
-    end
+    multiplayer = true if multi.upcase == 'Y'
 
     if author >= 1
       game = Game.new(@authors[author - 1], pub_date, multiplayer, last_played_date)
       @games << game
     else
-      puts "Wrong input!"
+      puts 'Wrong input!'
     end
-    return game
+    game
   end
 
   def list_all_authors
@@ -76,15 +74,15 @@ class App
   end
 
   def handle_logic(input)
-    # add logic here
-    if input == 3
+    case input
+    when 3
       list_all_games
-    elsif input == 4
+    when 4
       create_author
-    elsif input == 5
-        create_game
-    elsif input.zero?
-      self.exit
+    when 5
+      create_game
+    when 0
+      exit
     else
       puts 'Wrong input!'
     end
