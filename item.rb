@@ -16,7 +16,6 @@ class Item
     # Check if the item's published_date is older than 10 years
     return true if current_year - item_year > 10
 
-
     false
   end
 end
