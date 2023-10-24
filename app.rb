@@ -7,5 +7,5 @@ class App
         puts "**********************************"
         puts ""
         Kernel.exit
-    end    
+    end
 end
