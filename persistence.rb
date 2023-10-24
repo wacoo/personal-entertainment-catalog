@@ -6,9 +6,13 @@ class Persistence
     end
 
     def save(file_name, obj_list)
-        File.open("#{file_name}.json", "w") do |file|
-            file.write(obj_list)
-        end
+        json = File.read("#{file_name}.json")
+        data = JSON.parse(json)
+        data
+    end
+
+    def load(file_name)
+        line = File.read   
     end
 end
 
