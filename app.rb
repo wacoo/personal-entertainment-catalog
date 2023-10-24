@@ -52,12 +52,20 @@ class App
   end
 
   def list_all_authors
+    if @authors.length.zero?
+      puts ''
+      puts '😭 No author added! 😭'
+    end
     @authors.each_with_index do |author, idx|
       puts "#{idx + 1}) #{author.first_name} #{author.last_name}"
     end
   end
 
   def list_all_games
+    if @games.length.zero?
+      puts ''
+      puts '😭 No game added! 😭'
+    end
     @games.each_with_index do |game, idx|
       puts "#{idx + 1}) Game ID: #{game.id} Author: #{game.author.first_name} #{game.author.last_name} Last played: #{game.last_played_at}"
     end
@@ -75,13 +83,15 @@ class App
 
   def handle_logic(input)
     case input
-    when 3
-      list_all_games
-    when 4
+    when 1
+      list_all_authors
+    when 2
+      list_all_games      
+    when 8
       create_author
-    when 5
+    when 9
       create_game
-    when 0
+    when 
       exit
     else
       puts 'Wrong input!'

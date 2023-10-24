@@ -9,13 +9,17 @@ class Main
     puts ''
     puts 'SELECT OPTIONS (1 - 10)'
     puts ''
+    puts '1) List all authors'
+    puts '2) List all games'
     # add options here
-    puts '  0) Exit'
+    puts '8) Create an author'
+    puts '9) Create a game'
+    # add options here
+    puts '0) Exit'
     puts ''
     print 'OPTION:> '
     input = gets.chomp.to_i
     puts ''
-    puts input
     app.handle_logic(input)
   end
 
