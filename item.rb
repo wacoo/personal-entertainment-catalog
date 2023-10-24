@@ -11,17 +11,17 @@ class Item
     end
 
     def can_be_archived?
-        current_year = Time.now.year
-        item_year = Date.parse(@published_date).year
-        # Check if the item's published_date is older than 10 years
-        if (current_year - item_year > 10)
-          return true
-        else
-          return false
-        end
+      current_year = Time.now.year
+      item_year = Date.parse(@published_date).year
+      # Check if the item's published_date is older than 10 years
+      if (current_year - item_year > 10)
+        return true
+      else
+        return false
       end
+    end
+    
+    def move_to_archive
+      @archived = true if can_be_archived?
+    end
 end
-
-# item = Item.new("2003-03-19")
-# puts item.can_be_archived?
-# puts(item)
