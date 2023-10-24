@@ -1,4 +1,6 @@
 class Author
+    attr_reader :id, :items
+    attr_accessor :first_name, :last_name
     def initialize (first_name, last_name)
         @id = (101..200).to_a.shuffle
         @first_name = first_name
@@ -8,6 +10,6 @@ class Author
 
     def add_item(item)
         item.author = self
-        @items << item unless @item.include(item)
+        @items << item unless @items.include?(item)
     end
 end

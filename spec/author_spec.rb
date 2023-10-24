@@ -31,19 +31,18 @@ describe Author do
 
     context 'add_item method' do
         it '(items) should increased by one item' do
-            game = Game.new('2010/12/23', true, '2023/9/24', false)
             author = Author.new('John', 'Smith')
+            game = Game.new(nil,'2010/12/23', true, '2023/9/24')
             expect(author.items.length).to eql(0)
             author.add_item(game)
             expect(author.items.length).to eql(1)
         end
 
         it '(publish_date) should be 2009/12/23' do
-            game = Game.new('2009/12/23', true, '2023/9/24', false)
+            game = Game.new(nil, '2009/12/23', true, '2023/9/24')
             author = Author.new('Jane', 'Smith')
             author.add_item(game)
-            #expect(author.items.length).to eql(1)
-            expect(author.items[0].publish_date).to eql('2009/12/23')
+            expect(author.items[0].last_played_at).to eql('2023/9/24')
         end
     end
 end
