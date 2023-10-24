@@ -1,4 +1,4 @@
-class author
+class Author
     def initialize (first_name, last_name)
         @id = (101..200).to_a.shuffle
         @first_name = first_name
