@@ -15,10 +15,9 @@ class Item
     item_year = Date.parse(@published_date).year
     # Check if the item's published_date is older than 10 years
     return true if current_year - item_year > 10
-
     false
   end
-
+  
   # method for archive
   def move_to_archive
     @archived = true if can_be_archived?
