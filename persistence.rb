@@ -1,3 +1,4 @@
+require 'json'
 class Persistence
     def initialize
         if !Dir.exists?('db')
@@ -12,7 +13,9 @@ class Persistence
     end
 
     def load(file_name)
-        line = File.read   
+        json = File.read("#{file_name}.json")
+        hash_list = JSON.parse(json)
+        hash_list
     end
 end
 
