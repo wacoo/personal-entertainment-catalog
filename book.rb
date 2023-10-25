@@ -9,8 +9,8 @@ class Book < Item
     super.author = params[:author]
     super.source = params[:source]
     super.label = params[:label]
-    @publisher = params [:publisher]
-    @cover_state = params [:cover_state]
+    @publisher = params[:publisher]
+    @cover_state = params[:cover_state]
   end
 
   def can_be_archived?
