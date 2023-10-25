@@ -11,6 +11,7 @@ class Game < Item
     self.genre = params[:genre]
     self.source = params[:source]
     self.label = params[:label]
+    @archived = false
   end
 
   def can_be_archived?()
