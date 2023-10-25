@@ -4,13 +4,13 @@ require_relative 'genre'
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(genre, author, source, label, published_date, on_spotify)
-    @on_spotify = on_spotify
-    super.genre = genre
-    super.author = author
-    super.source = source
-    super.label = label
-    super.published_date = published_date
+  def initialize(parmas)
+    @on_spotify = params[:on_spotify]
+    super.genre = params[:genre]
+    super.author = params[:author]
+    super.source = params[:source]
+    super.label = params[:label]
+    super.published_date = params[:published_date]
     @archived = false
   end
 
