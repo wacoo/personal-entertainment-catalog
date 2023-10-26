@@ -43,7 +43,8 @@ class App
     multiplayer = true if multi.upcase == 'Y'
 
     if author >= 1
-      game = Game.new(@authors[author - 1], pub_date, multiplayer, last_played_date)
+      game = Game.new(pub_date, multiplayer, last_played_date)
+      game.author = @authors[author - 1]
       @games << game
     else
       puts 'Wrong input!'
