@@ -9,16 +9,20 @@ class Main
     puts ''
     puts 'SELECT OPTIONS (1 - 10)'
     puts ''
+    puts '1) List all authors'
+    puts '2) List all games'
+    puts '3) List all books'
+    puts '4) List all labels'
     # add options here
-    puts 'List all books'
-    puts 'List all labels (e.g. "Gift", "New")'
-    puts 'Add a book'
-    puts '  0) Exit'
+    puts '8) Create an author'
+    puts '9) Create a game'
+    puts '10) Add a book'
+    # add options here
+    puts '0) Exit'
     puts ''
     print 'OPTION:> '
     input = gets.chomp.to_i
     puts ''
-    puts input
     app.handle_logic(input)
   end
 
