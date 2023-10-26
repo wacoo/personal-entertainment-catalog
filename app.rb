@@ -13,6 +13,7 @@ class App
     @books = []
     @labels = []
     @genres = []
+    @movies = []
   end
 
   def get_user_input(message)

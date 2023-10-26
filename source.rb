@@ -1,4 +1,4 @@
-class source
+class Source
     attr_accessor :items
 
     def initialize
