@@ -9,6 +9,6 @@ class Movie < Item
     end
 
     def can_be_archived?
-        super && @silent
+        super || @silent
     end
 end
