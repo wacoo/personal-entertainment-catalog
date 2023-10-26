@@ -188,6 +188,16 @@ class App
     end
   end
 
+  def list_all_sources
+    if @sources.empty?
+        puts 'No sources added!'
+    else
+        @sources.each_with_index do |source, idx|
+            puts "#{idx + 1}) Source: #{source.name}"
+        end
+    end
+  end  
+
   def list_all_authors
     if @authors.empty?
       puts ''
@@ -206,6 +216,16 @@ class App
     @games.each_with_index do |game, idx|
       puts "#{idx + 1}) Game ID: #{game.id} Author: #{game.author.first_name} #{game.author.last_name} Last played: #{game.last_played_at}"
     end
+  end
+
+  def save_data
+    File.write('movies.json', JSON.dump(@movies))
+    File.write('sources.json', JSON.dump(@sources))
+  end
+
+  def load_data
+      @movies = JSON.parse(File.read('movies.json')) if File.exist?('movies.json')
+      @sources = JSON.parse(File.read('sources.json')) if File.exist?('sources.json')
   end
 
   def exit
