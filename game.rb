@@ -25,7 +25,3 @@ class Game < Item
     end
   end
 end
-
-game = Game.new('2010/12/23', true, '2023/9/24')
-puts game.can_be_archived?
-puts game
