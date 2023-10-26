@@ -27,14 +27,14 @@ class App
     else
       puts 'list genre...'
     end
-  
+
     if @authors.empty?
       puts ''
       puts '😭 No author added! 😭'
       puts ''
       puts 'Create a new author'
       puts ''
-      create_author      
+      create_author
     end
     list_all_authors
     puts ''
