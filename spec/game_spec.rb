@@ -20,6 +20,18 @@ describe Game do
       game = Game.new('2010/12/23', true, '2023/9/24')
       expect(game).to respond_to('last_played_at')
     end
+
+    it '(game author first name) should be euqal to John' do
+      game = Game.new('2010/12/23', true, '2023/9/24')
+      game.author = Author.new('John', 'Smith')
+      expect(game.author.first_name).to eql('John')
+    end
+
+    it '(game author last name) should be euqal to Smith' do
+      game = Game.new('2010/12/23', true, '2023/9/24')
+      game.author = Author.new('John', 'Smith')
+      expect(game.author.last_name).to eql('Smith')
+    end
   end
 
   context 'can_be_archived? method' do
