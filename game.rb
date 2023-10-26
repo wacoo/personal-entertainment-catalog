@@ -3,15 +3,10 @@ require_relative('item')
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(params)
-    super(params[:publish_date])
-    @multiplayer = params[:multiplayer]
-    @last_played_at = params[:last_played_at]
-    self.author = params[:author]
-    self.genre = params[:genre]
-    self.source = params[:source]
-    self.label = params[:label]
-    @archived = false
+  def initialize(publish_date, multiplayer, last_played_at)
+    super(publish_date)
+    @multiplayer = multiplayer
+    @last_played_at = last_played_at
   end
 
   def can_be_archived?()
@@ -31,6 +26,6 @@ class Game < Item
   end
 end
 
-# game = Game.new('2010/12/23', true, '2023/9/24')
-# puts game.can_be_archived?
-# puts game
+game = Game.new('2010/12/23', true, '2023/9/24')
+puts game.can_be_archived?
+puts game
