@@ -87,9 +87,6 @@ class App
   end
 
   def create_author
-    puts '**********************************'
-    puts '       CREATE A NEW AUTHOR        '
-    puts '**********************************'
     puts ''
     print 'First name:> '
     fname = gets.chomp
@@ -102,10 +99,20 @@ class App
   end
 
   def create_game
-    puts '**********************************'
-    puts '        CREATE A NEW GAME        '
-    puts '**********************************'
-    puts ''
+    if @genres.empty?
+      puts 'create genre...'
+    else
+      puts 'list genre...'
+    end
+
+    if @authors.empty?
+      puts ''
+      puts '😭 No author added! 😭'
+      puts ''
+      puts 'Create a new author'
+      puts ''
+      create_author
+    end
     list_all_authors
     puts ''
     print 'Select author:> '
@@ -123,7 +130,8 @@ class App
     multiplayer = true if multi.upcase == 'Y'
 
     if author >= 1
-      game = Game.new(@authors[author - 1], pub_date, multiplayer, last_played_date)
+      game = Game.new(pub_date, multiplayer, last_played_date)
+      game.author = @authors[author - 1]
       @games << game
     else
       puts 'Wrong input!'
