@@ -147,7 +147,7 @@ class App
     puts 'Creating a new movie...'
 
     if @genres.empty?
-      puts 'Please add a genre first' 
+      puts 'Please add a genre first'
       # You may decide to create_genre here or give a notice to the user.
     end
 
@@ -164,7 +164,7 @@ class App
     if author >= 1
       publish_date = get_user_input('Enter movie publish-date [YYYY/MM/DD]: ')
       silent = get_user_input('Is the movie silent? [true/false]: ')
-      silent = silent.downcase == 'true' ? true : false
+      silent = silent.downcase == 'true'
 
       movie = Movie.new(publish_date, silent: silent)
       auth = @authors[author - 1]
@@ -190,13 +190,13 @@ class App
 
   def list_all_sources
     if @sources.empty?
-        puts 'No sources added!'
+      puts 'No sources added!'
     else
-        @sources.each_with_index do |source, idx|
-            puts "#{idx + 1}) Source: #{source.name}"
-        end
+      @sources.each_with_index do |source, idx|
+        puts "#{idx + 1}) Source: #{source.name}"
+      end
     end
-  end  
+  end
 
   def list_all_authors
     if @authors.empty?
@@ -224,8 +224,8 @@ class App
   end
 
   def load_data
-      @movies = JSON.parse(File.read('movies.json')) if File.exist?('movies.json')
-      @sources = JSON.parse(File.read('sources.json')) if File.exist?('sources.json')
+    @movies = JSON.parse(File.read('movies.json')) if File.exist?('movies.json')
+    @sources = JSON.parse(File.read('sources.json')) if File.exist?('sources.json')
   end
 
   def exit
