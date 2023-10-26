@@ -1,9 +1,6 @@
 require_relative '../game'
 require_relative '../item'
 
-# require_relative '../classes/game'
-# require_relative '../classes/item_temp'
-
 describe Game do
   context 'Game class' do
     it '(game) should be an instance of Game' do
