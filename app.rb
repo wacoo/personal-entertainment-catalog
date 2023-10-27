@@ -81,7 +81,7 @@ class App
       end
     end
   end
-  
+
   def exit
     puts ''
     puts '**********************************'
@@ -102,7 +102,7 @@ class App
       2 => -> { @gops.list_games_with_banner },
       3 => -> { @bops.list_all_books },
       4 => -> { @lops.list_all_labels },
-      5 => -> { list_all_movies } ,
+      5 => -> { list_all_movies },
       6 => -> { create_movie },
       7 => -> { list_all_sources },
       8 => -> { @aops.create_author_with_banner },
