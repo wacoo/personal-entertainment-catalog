@@ -15,8 +15,3 @@ class MusicAlbum < Item
     false
   end
 end
-
-music = MusicAlbum.new(true, '12/12/2020')
-
-puts music
-puts music.can_be_archived?
