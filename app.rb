@@ -7,9 +7,11 @@ require_relative 'movie'
 require_relative 'source'
 require_relative 'author_ops'
 require_relative 'game_ops'
+require_relative 'label_ops'
+require_relative 'book_ops'
 
 class App
-  attr_reader :genre, :aops
+  attr_reader :genre, :aops, :lops
 
   def initialize
     # @authors = []
@@ -19,80 +21,9 @@ class App
     @movies = []
     @aops = AuthorOps.new
     @gops = GameOps.new
+    @lops = LabelOps.new
+    @bops = BookOps.new
     @genre = [] # temp
-  end
-
-  def get_user_input(message)
-    print message
-    gets.chomp
-  end
-
-  def create_label
-    puts ''
-    puts 'Adding New Label...'
-
-    title = get_user_input('Enter label title: ')
-    color = get_user_input('Enter label color: ')
-
-    label = Label.new(title, color)
-    @labels << label
-
-    # puts 'Label created successfully !!!'
-  end
-
-  def create_book
-    puts ''
-    puts 'Creating a new book....'
-
-    # if @genres.empty?
-    #   puts 'create_genre'
-    # else
-    #   puts 'list_all_genres'
-    # end
-
-    if @authors.empty?
-      puts 'Please add an author'
-      create_author
-    end
-    puts 'Choose author from the list by number:'
-    list_all_authors
-
-    author = gets.chomp.to_i
-
-    if author >= 1
-      publish_date = get_user_input('Enter book publish-date [YYYY/MM/DD]: ')
-      publisher = get_user_input('Enter book publisher: ')
-      cover_state = get_user_input('Enter cover state[good/bad?]: ')
-      book = Book.new(publish_date, publisher, cover_state)
-      auth = @authors[author - 1]
-      book.author = auth
-      # genre = create_genre
-      # book.genre = genre
-      @books << book
-    else
-      puts 'Wrong input'
-    end
-    puts 'Book added successfully !!!'
-  end
-
-  def list_all_labels
-    puts 'Labels are empty!!😭' if @labels.empty?
-    puts ''
-    puts '________LABELS__________'
-    @labels.each_with_index do |label, idx|
-      puts "#{idx + 1}) Color: #{label.title} Title:#{label.color}"
-    end
-  end
-
-  def list_all_books
-    puts 'Booklist is empty!Please add a book' if @books.empty?
-    puts ''
-    puts '________Book List__________'
-    puts ''
-
-    @books.each_with_index do |book, idx|
-      puts "#{idx + 1}) Book ID: #{book.id}, Publisher: #{book.publisher}, Published Date: #{book.published_date}, Cover State: #{book.cover_state}"
-    end
   end
 
   def create_movie
@@ -150,7 +81,7 @@ class App
       end
     end
   end
-  
+
   def exit
     puts ''
     puts '**********************************'
@@ -171,12 +102,13 @@ class App
       2 => -> { @gops.list_games_with_banner },
       3 => -> { @bops.list_all_books },
       4 => -> { @lops.list_all_labels },
-      5 => -> { list_all_movies } ,
+      5 => -> { list_all_movies },
       6 => -> { create_movie },
       7 => -> { list_all_sources },
       8 => -> { @aops.create_author_with_banner },
       9 => -> { @gops.create_game_with_banner(app) },
-      10 => -> { @bops.create_book },
+      10 => -> { @bops.create_book(app) },
+      11 => -> { @lops.create_label },
       0 => method(:exit)
     }
 
