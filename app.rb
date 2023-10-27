@@ -11,78 +11,25 @@ require_relative 'label_ops'
 require_relative 'book_ops'
 require_relative 'music_album_ops'
 require_relative 'genre_ops'
+require_relative 'movie_ops'
+require_relative 'source_ops'
 
 class App
-  attr_reader :genre, :aops, :lops, :gops, :maops, :gnops
+  attr_reader :genre, :aops, :lops, :gops, :maops, :gnops, :mops, :sops
 
   def initialize
     # @authors = []
     # @games = []
     # @books = []
     # @labels = []
-    @movies = []
     @aops = AuthorOps.new
     @gops = GameOps.new
     @lops = LabelOps.new
     @bops = BookOps.new
     @maops = MusicAlbumOps.new
     @gnops = GenreOps.new
-  end
-
-  def create_movie
-    puts ''
-    puts 'Creating a new movie...'
-
-    if @genres.empty?
-      puts 'Please add a genre first'
-      # You may decide to create_genre here or give a notice to the user.
-    end
-
-    if @authors.empty?
-      puts 'Please add an author'
-      create_author
-    end
-
-    puts 'Choose author from the list by number:'
-    list_all_authors
-
-    author = gets.chomp.to_i
-
-    if author >= 1
-      publish_date = get_user_input('Enter movie publish-date [YYYY/MM/DD]: ')
-      silent = get_user_input('Is the movie silent? [true/false]: ')
-      silent = silent.downcase == 'true'
-
-      movie = Movie.new(publish_date, silent: silent)
-      auth = @authors[author - 1]
-      movie.author = auth
-      # Optionally, you can assign a genre as with the Book.
-      @movies << movie
-    else
-      puts 'Wrong input'
-    end
-    puts 'Movie added successfully !!!'
-  end
-
-  def list_all_movies
-    puts 'Movie list is empty! Please add a movie' if @movies.empty?
-    puts ''
-    puts '________Movie List__________'
-    puts ''
-
-    @movies.each_with_index do |movie, idx|
-      puts "#{idx + 1}) Movie ID: #{movie.id}, Published Date: #{movie.published_date}, Silent: #{movie.silent}"
-    end
-  end
-
-  def list_all_sources
-    if @sources.empty?
-      puts 'No sources added!'
-    else
-      @sources.each_with_index do |source, idx|
-        puts "#{idx + 1}) Source: #{source.name}"
-      end
-    end
+    @movies = MovieOps.new
+    @sops = SourceOps.new
   end
 
   def exit
@@ -104,16 +51,16 @@ class App
       2 => -> { @gops.list_games_with_banner },
       3 => -> { @bops.list_all_books },
       4 => -> { @lops.list_all_labels },
-      5 => -> { list_all_movies },
-      6 => -> { create_movie },
-      7 => -> { list_all_sources },
+      5 => -> { @movies.list_movies_with_banner },
+      6 => -> { @movies.create_movie(app) },
+      7 => -> { @sops.list_all_sources },
       8 => -> { @aops.create_author_with_banner },
       9 => -> { @gops.create_game_with_banner(app) },
       10 => -> { @bops.create_book(app) },
       11 => -> { @lops.create_label },
       12 => -> { @maops.list_album_with_banner },
       13 => -> { @maops.create_album_with_banner(app) },
-      14 => -> { puts 'create a source' },
+      14 => -> { @sops.create_source },
       15 => -> { @gnops.list_genre_with_banner },
       16 => -> { @gnops.create_genre_with_banner },
       0 => method(:exit)
