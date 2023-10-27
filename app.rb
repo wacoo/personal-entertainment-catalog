@@ -11,8 +11,8 @@ require_relative 'label_ops'
 require_relative 'book_ops'
 require_relative 'music_album_ops'
 require_relative 'genre_ops'
-require_relative 'movie_ops.rb'
-require_relative 'source_ops.rb'
+require_relative 'movie_ops'
+require_relative 'source_ops'
 
 class App
   attr_reader :genre, :aops, :lops, :gops, :maops, :gnops, :mops, :sops
