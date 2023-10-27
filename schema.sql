@@ -1,0 +1,2 @@
+CREATE TABLE genre(id serial PRIMARY KEY, name VARCHAR(225), items[])
+CREATE TABLE musicAlbum(id serial PRIMARY KEY, on_spotify BOOLEAN, genre TEXT, genre_id INTEGER, archived BOOLEAN, FOREIGN KEY (genre_id) REFERENCES Genre(id))
