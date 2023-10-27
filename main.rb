@@ -17,6 +17,7 @@ class Main
     puts '8) Create an author'
     puts '9) Create a game'
     puts '10) Create a book'
+    puts '11) Create_label'
     # add options here
     puts '0) Exit'
     puts ''
