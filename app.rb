@@ -11,7 +11,7 @@ require_relative 'label_ops'
 require_relative 'book_ops'
 require_relative 'music_album_ops'
 require_relative 'genre_ops'
-require_relative 'movie.ops.rb'
+require_relative 'movie_ops.rb'
 require_relative 'source_ops.rb'
 
 class App
@@ -51,8 +51,8 @@ class App
       2 => -> { @gops.list_games_with_banner },
       3 => -> { @bops.list_all_books },
       4 => -> { @lops.list_all_labels },
-      5 => -> { @mops.list_all_movies },
-      6 => -> { @mops.create_movie },
+      5 => -> { @movies.list_movies_with_banner },
+      6 => -> { @movies.create_movie(app) },
       7 => -> { @sops.list_all_sources },
       8 => -> { @aops.create_author_with_banner },
       9 => -> { @gops.create_game_with_banner(app) },
