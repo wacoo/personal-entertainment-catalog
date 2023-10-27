@@ -1,8 +1,9 @@
 class Source
-  attr_accessor :items
+  attr_accessor :items, :name
 
-  def initialize
+  def initialize(name)
     @items = []
+    @name = name
   end
 
   def add_item(item)

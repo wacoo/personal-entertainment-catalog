@@ -11,9 +11,11 @@ require_relative 'label_ops'
 require_relative 'book_ops'
 require_relative 'music_album_ops'
 require_relative 'genre_ops'
+require_relative 'movie_ops'
+require_relative 'source_ops'
 
 class App
-  attr_reader :genre, :aops, :lops, :gops, :maops, :gnops
+  attr_reader :genre, :aops, :lops, :gops, :maops, :gnops, :mops, :sops
 
   def initialize
     # @authors = []
@@ -27,6 +29,8 @@ class App
     @bops = BookOps.new
     @maops = MusicAlbumOps.new
     @gnops = GenreOps.new
+    @mops = MovieOps.new
+    @sops = SourceOps.new
   end
 
   def create_movie
@@ -104,16 +108,16 @@ class App
       2 => -> { @gops.list_games_with_banner },
       3 => -> { @bops.list_all_books },
       4 => -> { @lops.list_all_labels },
-      5 => -> { list_all_movies },
-      6 => -> { create_movie },
-      7 => -> { list_all_sources },
+      5 => -> { @mops.list_all_movies },
+      6 => -> { @mops.create_movie(app) },
+      7 => -> { @sops.list_all_sources },
       8 => -> { @aops.create_author_with_banner },
       9 => -> { @gops.create_game_with_banner(app) },
       10 => -> { @bops.create_book(app) },
       11 => -> { @lops.create_label },
       12 => -> { @maops.list_album_with_banner },
       13 => -> { @maops.create_album_with_banner(app) },
-      14 => -> { puts 'create a source' },
+      14 => -> { @sops.create_source },
       15 => -> { @gnops.list_genre_with_banner },
       16 => -> { @gnops.create_genre_with_banner },
       0 => method(:exit)
