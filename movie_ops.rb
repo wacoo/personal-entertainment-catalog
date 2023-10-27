@@ -75,7 +75,7 @@ class MovieOps
       puts '😭 No movies added! 😭'
     end
     @movies.each_with_index do |movie, idx|
-      puts "#{idx + 1}) Movie ID: #{movie.id}, Title: #{movie.author.name}'s Movie, Genre: #{movie.genre.name},
+      puts "#{idx + 1}) Movie ID: #{movie.id}, Title: #{movie.author.first_name} #{movie.author.last_name}'s Movie, Genre: #{movie.genre.name},
       Publish date: #{movie.publish_date}, Silent: #{movie.silent ? 'Yes' : 'No'}"
     end
   end
