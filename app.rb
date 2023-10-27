@@ -3,14 +3,20 @@ require_relative 'game'
 require_relative 'book'
 require_relative 'label'
 require_relative 'genre'
+require_relative 'author_ops'
+require_relative 'game_ops'
 
 class App
+  attr_reader :genre, :aops
+
   def initialize
-    @authors = []
+    # @authors = []
     @games = []
     @books = []
     @labels = []
-    @genres = []
+    @aops = AuthorOps.new
+    @gops = GameOps.new
+    @genre = [] # temp
   end
 
   def get_user_input(message)
@@ -86,79 +92,6 @@ class App
     end
   end
 
-  def create_author
-    puts ''
-    print 'First name:> '
-    fname = gets.chomp
-    print 'Last name:> '
-    lname = gets.chomp
-
-    author = Author.new(fname, lname)
-    @authors << author
-    author
-  end
-
-  def create_game
-    if @genres.empty?
-      puts 'create genre...'
-    else
-      puts 'list genre...'
-    end
-
-    if @authors.empty?
-      puts ''
-      puts '😭 No author added! 😭'
-      puts ''
-      puts 'Create a new author'
-      puts ''
-      create_author
-    end
-    list_all_authors
-    puts ''
-    print 'Select author:> '
-
-    author = gets.chomp.to_i
-    print 'Publish date:> '
-    pub_date = gets.chomp
-    print 'Last played at[DATE]:> '
-    last_played_date = gets.chomp
-    print 'Multi-player[Y/N]:> '
-    multi = gets.chomp
-
-    multiplayer = false
-    game = nil
-    multiplayer = true if multi.upcase == 'Y'
-
-    if author >= 1
-      game = Game.new(pub_date, multiplayer, last_played_date)
-      game.author = @authors[author - 1]
-      @games << game
-    else
-      puts 'Wrong input!'
-    end
-    game
-  end
-
-  def list_all_authors
-    if @authors.empty?
-      puts ''
-      puts '😭 No author added! 😭'
-    end
-    @authors.each_with_index do |author, idx|
-      puts "#{idx + 1}) #{author.first_name} #{author.last_name}"
-    end
-  end
-
-  def list_all_games
-    if @games.empty?
-      puts ''
-      puts '😭 No game added! 😭'
-    end
-    @games.each_with_index do |game, idx|
-      puts "#{idx + 1}) Game ID: #{game.id} Author: #{game.author.first_name} #{game.author.last_name} Last played: #{game.last_played_at}"
-    end
-  end
-
   def exit
     puts ''
     puts '**********************************'
@@ -173,15 +106,15 @@ class App
     puts 'Wrong input!'
   end
 
-  def handle_logic(input)
+  def handle_logic(input, app)
     actions = {
-      1 => method(:list_all_authors),
-      2 => method(:list_all_games),
-      3 => method(:list_all_books),
-      4 => method(:list_all_labels),
-      8 => method(:create_author),
-      9 => method(:create_game),
-      10 => method(:create_book),
+      1 => -> { @aops.list_authors_with_banner },
+      2 => -> { @gops.list_games_with_banner },
+      3 => -> { @bops.list_all_books },
+      4 => -> { @lops.list_all_labels },
+      8 => -> { @aops.create_author_with_banner },
+      9 => -> { @gops.create_game_with_banner(app) },
+      10 => -> { @bops.create_book },
       0 => method(:exit)
     }
 

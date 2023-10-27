@@ -23,7 +23,7 @@ class Main
     print 'OPTION:> '
     input = gets.chomp.to_i
     puts ''
-    app.handle_logic(input)
+    app.handle_logic(input, app)
   end
 
   def display
