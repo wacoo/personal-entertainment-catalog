@@ -1,5 +1,6 @@
 class LabelOps
   attr_reader :labels
+
   def initialize
     @labels = []
   end
@@ -18,7 +19,7 @@ class LabelOps
 
     label = Label.new(title, color)
     @labels << label
-    
+
     # puts 'Label created successfully !!!'
   end
 

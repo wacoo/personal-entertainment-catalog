@@ -7,8 +7,8 @@ class BookOps
     print message
     gets.chomp
   end
-  
-  def create_book (app)
+
+  def create_book(app)
     puts ''
     puts 'Creating a new book....'
 
