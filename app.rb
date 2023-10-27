@@ -46,7 +46,7 @@ class App
       8 => -> { @aops.create_author_with_banner },
       9 => -> { @gops.create_game_with_banner(app) },
       10 => -> { @bops.create_book(app) },
-      11 => -> { @lops.create_label},
+      11 => -> { @lops.create_label },
       0 => method(:exit)
     }
 

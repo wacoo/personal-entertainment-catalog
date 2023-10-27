@@ -21,7 +21,6 @@ class LabelOps
 
     label = Label.new(title, color)
     @labels << label
-    label
 
     puts 'Label created successfully !!!'
   end
