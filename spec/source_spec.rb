@@ -17,7 +17,7 @@ describe Source do
   context '#add_item' do
     let(:source) { Source.new('Hulu') }
     let(:movie) { double('Movie') }
-    
+
     it 'adds an item to the source' do
       expect(movie).to receive(:source=).with(source)
       source.add_item(movie)
