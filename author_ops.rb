@@ -1,5 +1,5 @@
 require_relative 'persistence'
-
+require_relative 'author'
 class AuthorOps
   attr_reader :authors
 
@@ -62,7 +62,22 @@ class AuthorOps
     hash_books
   end
 
+  def to_obj(list)
+    list.each do [hash]
+      puts hash
+      #author = Author.new(hash['first_name'], hash['last_name'])
+      #@authors << author
+    end
+  end
+
   def save_books
-    @persist.save('books', to_hash)
+    @persist.save('authors', to_hash)
+  end
+
+  def load_books
+    hash_list = @persist.load('authors')
+    puts 'hash_list'
+    puts hash_list
+    to_obj(hash_list)
   end
 end

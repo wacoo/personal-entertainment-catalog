@@ -27,6 +27,7 @@ class Main
 
   def display
     app = App.new
+    app.aops.load_books
     loop do
       menu(app)
     end
