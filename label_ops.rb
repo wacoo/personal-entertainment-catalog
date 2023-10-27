@@ -1,3 +1,5 @@
+require_relative 'label'
+
 class LabelOps
   attr_reader :labels
 
@@ -19,8 +21,9 @@ class LabelOps
 
     label = Label.new(title, color)
     @labels << label
+    label
 
-    # puts 'Label created successfully !!!'
+    puts 'Label created successfully !!!'
   end
 
   def list_all_labels
@@ -28,7 +31,7 @@ class LabelOps
     puts ''
     puts '________LABELS__________'
     @labels.each_with_index do |label, idx|
-      puts "#{idx + 1}) Color: #{label.title} Title:#{label.color}"
+      puts "#{idx + 1}) Title: #{label.title}, Color:#{label.color}"
     end
   end
 end
