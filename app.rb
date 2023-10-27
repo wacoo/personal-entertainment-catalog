@@ -41,7 +41,6 @@ class App
     #   puts 'list_all_genres'
     # end
 
-
     if @authors.empty?
       puts 'Please add an author'
       create_author
@@ -50,7 +49,6 @@ class App
     list_all_authors
 
     author = gets.chomp.to_i
-
 
     if author >= 1
       publish_date = get_user_input('Enter book publish-date [YYYY/MM/DD]: ')
