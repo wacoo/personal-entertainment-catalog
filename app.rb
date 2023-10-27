@@ -13,7 +13,7 @@ class App
 
   def initialize
     # @authors = []
-    @games = []
+    #@games = []
     @books = []
     @labels = []
     @movies = []
