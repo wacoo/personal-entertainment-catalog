@@ -2,7 +2,7 @@ require_relative '../genre'
 require_relative '../item'
 
 describe Genre do
-  let(:genre) { Genre.new('Crime')}
+  let(:genre) { Genre.new('Crime') }
 
   describe '#initialize' do
     it 'create a new Genre' do
