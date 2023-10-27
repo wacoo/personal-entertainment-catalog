@@ -42,9 +42,11 @@ class App
       2 => -> { @gops.list_games_with_banner },
       3 => -> { @bops.list_all_books },
       4 => -> { @lops.list_all_labels },
+
       8 => -> { @aops.create_author_with_banner },
       9 => -> { @gops.create_game_with_banner(app) },
       10 => -> { @bops.create_book(app) },
+      11 => -> { @lops.create_label},
       0 => method(:exit)
     }
 
