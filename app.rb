@@ -13,7 +13,6 @@ class App
     @genres = []
   end
 
-
   def get_user_input(message)
     print message
     gets.chomp
@@ -28,9 +27,8 @@ class App
 
     label = Label.new(title, color)
     @labels << label
-    
-    # puts 'Label created successfully !!!'
 
+    # puts 'Label created successfully !!!'
   end
 
   def create_book
@@ -42,7 +40,7 @@ class App
     # else
     #   puts 'list_all_genres'
     # end
-    
+
 
     if @authors.empty?
       puts 'Please add an author'
@@ -53,12 +51,12 @@ class App
 
     author = gets.chomp.to_i
 
-    
+
     if author >= 1
       publish_date = get_user_input('Enter book publish-date [YYYY/MM/DD]: ')
       publisher = get_user_input('Enter book publisher: ')
       cover_state = get_user_input('Enter cover state[good/bad?]: ')
-      book = Book.new( publish_date, publisher, cover_state)
+      book = Book.new(publish_date, publisher, cover_state)
       auth = @authors[author - 1]
       book.author = auth
       # genre = create_genre
@@ -67,7 +65,6 @@ class App
     else
       puts 'Wrong input'
     end
-    book
     puts 'Book added successfully !!!'
   end
 
@@ -90,6 +87,7 @@ class App
       puts "#{idx + 1}) Book ID: #{book.id}, Publisher: #{book.publisher}, Published Date: #{book.published_date}, Cover State: #{book.cover_state}"
     end
   end
+
   def create_author
     puts '**********************************'
     puts '       CREATE A NEW AUTHOR        '
@@ -165,26 +163,27 @@ class App
     Kernel.exit
   end
 
+  def handle_wrong_input
+    puts 'Wrong input!'
+  end
+
   def handle_logic(input)
-    case input
-    when 1
-      list_all_authors
-    when 2
-      list_all_games
-    when 3
-      list_all_books
-    when 4
-      list_all_labels
-    when 8
-      create_author
-    when 9
-      create_game
-    when 10
-      create_book
-    when 0
-      exit
+    actions = {
+      1 => method(:list_all_authors),
+      2 => method(:list_all_games),
+      3 => method(:list_all_books),
+      4 => method(:list_all_labels),
+      8 => method(:create_author),
+      9 => method(:create_game),
+      10 => method(:create_book),
+      0 => method(:exit)
+    }
+
+    action = actions[input]
+    if action
+      action.call
     else
-      puts 'Wrong input!'
+      handle_wrong_input
     end
   end
 end
