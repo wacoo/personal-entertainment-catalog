@@ -13,6 +13,8 @@ class Main
     puts '2) List all games'
     puts '3) List all books'
     puts '4) List all labels'
+    puts '5) List all movies'
+    puts '6) Add a movie'
     # add options here
     puts '8) Create an author'
     puts '9) Create a game'

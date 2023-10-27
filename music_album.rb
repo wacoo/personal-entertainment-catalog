@@ -4,14 +4,9 @@ require_relative 'genre'
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(params)
-    @on_spotify = params[:on_spotify]
-    super.genre = params[:genre]
-    super.author = params[:author]
-    super.source = params[:source]
-    super.label = params[:label]
-    super(params[:published_date])
-    @archived = false
+  def initialize(on_spotify, publish_date)
+    super(publish_date)
+    @on_spotify = on_spotify
   end
 
   def can_be_archived?
