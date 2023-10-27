@@ -1,8 +1,8 @@
 class Genre
   attr_accessor :id, :name, :items
 
-  def initialize(id, name)
-    @id = id
+  def initialize(name)
+    @id = (301..400).to_a.shuffle
     @name = name
     @items = []
   end

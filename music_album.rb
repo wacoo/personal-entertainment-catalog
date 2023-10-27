@@ -10,8 +10,13 @@ class MusicAlbum < Item
   end
 
   def can_be_archived?
-    return true if super.can_be_archived? && (@on_spotify == true) # Assuming there is a parent class with this method
+    return true if super && (@on_spotify == true) # Assuming there is a parent class with this method
 
     false
   end
 end
+
+music = MusicAlbum.new(true, '12/12/2020')
+
+puts music
+puts music.can_be_archived?
