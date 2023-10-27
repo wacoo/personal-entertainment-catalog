@@ -5,7 +5,7 @@ class AuthorOps
 
   def initialize
     @authors = []
-    @persist =  Persistence.new
+    @persist = Persistence.new
   end
 
   # def get_authors
@@ -63,10 +63,9 @@ class AuthorOps
   end
 
   def to_obj(list)
-    list.each do [hash]
-      puts hash
-      #author = Author.new(hash['first_name'], hash['last_name'])
-      #@authors << author
+    list.each do |hash|
+      author = Author.new(hash['first_name'], hash['last_name'])
+      @authors << author
     end
   end
 
@@ -76,8 +75,6 @@ class AuthorOps
 
   def load_books
     hash_list = @persist.load('authors')
-    puts 'hash_list'
-    puts hash_list
     to_obj(hash_list)
   end
 end
