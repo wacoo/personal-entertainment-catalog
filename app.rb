@@ -1,11 +1,95 @@
 require_relative 'author'
 require_relative 'game'
+require_relative 'book'
+require_relative 'label'
+require_relative 'genre'
+
 class App
   def initialize
     @authors = []
     @games = []
+    @books = []
+    @labels = []
+    @genres = []
   end
 
+
+  def get_user_input(message)
+    print message
+    gets.chomp
+  end
+
+  def create_label
+    puts ''
+    puts 'Adding New Label...'
+
+    title = get_user_input('Enter label title: ')
+    color = get_user_input('Enter label color: ')
+
+    label = Label.new(title, color)
+    @labels << label
+    
+    # puts 'Label created successfully !!!'
+
+  end
+
+  def create_book
+    puts ''
+    puts 'Creating a new book....'
+
+    # if @genres.empty?
+    #   puts 'create_genre'
+    # else
+    #   puts 'list_all_genres'
+    # end
+    
+
+    if @authors.empty?
+      puts 'Please add an author'
+      create_author
+    end
+    puts 'Choose author from the list by number:'
+    list_all_authors
+
+    author = gets.chomp.to_i
+
+    
+    if author >= 1
+      publish_date = get_user_input('Enter book publish-date [YYYY/MM/DD]: ')
+      publisher = get_user_input('Enter book publisher: ')
+      cover_state = get_user_input('Enter cover state[good/bad?]: ')
+      book = Book.new( publish_date, publisher, cover_state)
+      auth = @authors[author - 1]
+      book.author = auth
+      # genre = create_genre
+      # book.genre = genre
+      @books << book
+    else
+      puts 'Wrong input'
+    end
+    book
+    puts 'Book added successfully !!!'
+  end
+
+  def list_all_labels
+    puts 'Labels are empty!!😭' if @labels.empty?
+    puts ''
+    puts '________LABELS__________'
+    @labels.each_with_index do |label, idx|
+      puts "#{idx + 1}) Color: #{label.title} Title:#{label.color}"
+    end
+  end
+
+  def list_all_books
+    puts 'Booklist is empty!Please add a book' if @books.empty?
+    puts ''
+    puts '________Book List__________'
+    puts ''
+
+    @books.each_with_index do |book, idx|
+      puts "#{idx + 1}) Book ID: #{book.id}, Publisher: #{book.publisher}, Published Date: #{book.published_date}, Cover State: #{book.cover_state}"
+    end
+  end
   def create_author
     puts '**********************************'
     puts '       CREATE A NEW AUTHOR        '
@@ -87,10 +171,16 @@ class App
       list_all_authors
     when 2
       list_all_games
+    when 3
+      list_all_books
+    when 4
+      list_all_labels
     when 8
       create_author
     when 9
       create_game
+    when 10
+      create_book
     when 0
       exit
     else
