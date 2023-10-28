@@ -37,7 +37,7 @@ CREATE TABLE game (
     id INTEGER PRIMARY KEY,
     publish_date DATE,
     multiplayer BOOLEAN DEFAULT false,,
-    last_played_at DATE
+    last_played_at DATE,
     label_id INTEGER,
     genre_id INTEGER
     FOREIGN KEY (genre_id) REFERENCES genres (id),
