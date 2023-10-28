@@ -97,7 +97,7 @@ bundle install
 👤 **Author**
 
 - GitHub: [@firepicaso](https://github.com/firepicaso)
-- LinkedIn: [](www.linkedin.com/in/)
+- LinkedIn: [mustakim-masum](https://www.linkedin.com/in/mustakim-masum/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
