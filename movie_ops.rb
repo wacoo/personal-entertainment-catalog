@@ -83,16 +83,16 @@ class MovieOps
   end
 
   def to_hash
-    hash_books = []
+    hash_movies = []
     @movies.each do |movie|
       hb = {}
       hb['publish_date'] = movie.publish_date
       hb['silent'] = movie.silent
       hb['genre_name'] = movie.genre.name
       hb['author'] = "#{movie.author.first_name} #{movie.author.last_name}"
-      hash_books << hb
+      hash_movies << hb
     end
-    hash_books
+    hash_movies
   end
 
   def to_obj(list)

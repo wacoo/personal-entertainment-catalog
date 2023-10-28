@@ -33,13 +33,13 @@ class SourceOps
   end
 
   def to_hash
-    hash_books = []
+    hash_sources = []
     @sources.each do |source|
       hb = {}
       hb['name'] = source.name
-      hash_books << hb
+      hash_sources << hb
     end
-    hash_books
+    hash_sources
   end
 
   def to_obj(list)
