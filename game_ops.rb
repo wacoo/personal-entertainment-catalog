@@ -1,6 +1,9 @@
+require_relative 'persistence'
+
 class GameOps
   def initialize
     @games = []
+    @persist = Persistence.new
   end
 
   def message(item)
@@ -86,5 +89,38 @@ class GameOps
       puts "#{idx + 1}) Game ID: #{game.id}, Genre: #{game.genre.name}, Title: #{game.label.title}, " \
            "Last played: #{game.last_played_at}"
     end
+  end
+
+  def to_hash
+    hash_games = []
+    @games.each do |game|
+      hb = {}
+      hb['publish_date'] = game.publish_date
+      hb['multiplayer'] = game.multiplayer
+      hb['last_played_at'] = game.last_played_at
+      hb['genre_name'] = game.genre.name
+      hb['author'] = "#{game.author.first_name} #{game.author.last_name}"
+      hash_games << hb
+    end
+    hash_games
+  end
+
+  def to_obj(list)
+    list.each do |hash|
+      game = Game.new(hash['publish_date'], hash['multiplayer'], hash['last_played_at'])
+      author = hash['author'].split
+      game.author = Author.new(author[0], author[1])
+      game.genre = Genre.new(hash['genre_name'])
+      @games << game
+    end
+  end
+
+  def save_games
+    @persist.save('games', to_hash)
+  end
+
+  def load_games
+    hash_list = @persist.load('games')
+    to_obj(hash_list)
   end
 end

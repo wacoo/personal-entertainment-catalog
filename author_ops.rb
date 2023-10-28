@@ -1,8 +1,11 @@
+require_relative 'persistence'
+require_relative 'author'
 class AuthorOps
   attr_reader :authors
 
   def initialize
     @authors = []
+    @persist = Persistence.new
   end
 
   # def get_authors
@@ -46,5 +49,32 @@ class AuthorOps
     @authors.each_with_index do |author, idx|
       puts "#{idx + 1}) #{author.first_name} #{author.last_name}"
     end
+  end
+
+  def to_hash
+    hash_authors = []
+    @authors.each do |author|
+      hb = {}
+      hb['first_name'] = author.first_name
+      hb['last_name'] = author.last_name
+      hash_authors << hb
+    end
+    hash_authors
+  end
+
+  def to_obj(list)
+    list.each do |hash|
+      author = Author.new(hash['first_name'], hash['last_name'])
+      @authors << author
+    end
+  end
+
+  def save_authors
+    @persist.save('authors', to_hash)
+  end
+
+  def load_authors
+    hash_list = @persist.load('authors')
+    to_obj(hash_list)
   end
 end
