@@ -27,6 +27,8 @@ class Main
 
   def display
     app = App.new
+    app.maops.load_albums
+    app.gnops.load_genres
     loop do
       menu(app)
     end

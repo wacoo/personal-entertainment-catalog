@@ -38,6 +38,8 @@ class App
     puts '*          Thank you for using this app.        *'
     puts '*                   Goodbye 👋                  *'
     puts '*************************************************'
+    @maops.save_albums
+    @gnops.save_genres
     Kernel.exit
   end
 
