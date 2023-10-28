@@ -92,7 +92,7 @@ class GameOps
   end
 
   def to_hash
-    hash_books = []
+    hash_games = []
     @games.each do |game|
       hb = {}
       hb['publish_date'] = game.publish_date
@@ -100,9 +100,9 @@ class GameOps
       hb['last_played_at'] = game.last_played_at
       hb['genre_name'] = game.genre.name
       hb['author'] = "#{game.author.first_name} #{game.author.last_name}"
-      hash_books << hb
+      hash_games << hb
     end
-    hash_books
+    hash_games
   end
 
   def to_obj(list)

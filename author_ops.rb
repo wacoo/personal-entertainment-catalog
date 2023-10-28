@@ -52,14 +52,14 @@ class AuthorOps
   end
 
   def to_hash
-    hash_books = []
+    hash_authors = []
     @authors.each do |author|
       hb = {}
       hb['first_name'] = author.first_name
       hb['last_name'] = author.last_name
-      hash_books << hb
+      hash_authors << hb
     end
-    hash_books
+    hash_authors
   end
 
   def to_obj(list)
