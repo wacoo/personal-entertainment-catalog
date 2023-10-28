@@ -4,5 +4,35 @@
   },
   {
     "name": "Country"
+  },
+  {
+    "name": "Fiction"
+  },
+  {
+    "name": "History"
+  },
+  {
+    "name": "Economics"
+  },
+  {
+    "name": "Science"
+  },
+  {
+    "name": "sciFI"
+  },
+  {
+    "name": "Non-Fiction"
+  },
+  {
+    "name": "Thriller"
+  },
+  {
+    "name": "Young Adult"
+  },
+  {
+    "name": "Poetry"
+  },
+  {
+    "name": "Romance"
   }
 ]
