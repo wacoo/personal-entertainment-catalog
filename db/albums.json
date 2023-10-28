@@ -19,5 +19,12 @@
     "genre_name": "Poetry",
     "label_title": "Programming",
     "label_color": "Violet"
+  },
+  {
+    "on_spotify": true,
+    "publish_date": "1992/10/2",
+    "genre_name": "Country",
+    "label_title": "Programming",
+    "label_color": "Violet"
   }
 ]
