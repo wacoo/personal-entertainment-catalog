@@ -10,5 +10,11 @@
     "publisher": "King",
     "cover_state": "bad",
     "author": "Bett Enock"
+  },
+  {
+    "publish_date": "shakepear publication",
+    "publisher": "1980/1/12",
+    "cover_state": "good",
+    "author": "William ShakesPear"
   }
 ]
