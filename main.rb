@@ -28,6 +28,7 @@ class Main
   def display
     app = App.new
     app.movies.load_movies
+    app.sops.load_sources
     loop do
       menu(app)
     end

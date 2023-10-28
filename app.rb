@@ -39,6 +39,7 @@ class App
     puts '*                   Goodbye 👋                  *'
     puts '*************************************************'
     @movies.save_movies
+    @sops.save_sources
     Kernel.exit
   end
 
