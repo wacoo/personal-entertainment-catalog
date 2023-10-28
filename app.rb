@@ -40,6 +40,8 @@ class App
     puts '*************************************************'
     @movies.save_movies
     @sops.save_sources
+    aops.save_books
+    gops.save_games
     Kernel.exit
   end
 
