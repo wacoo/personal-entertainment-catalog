@@ -1,20 +1,38 @@
 [
   {
-    "publish_date": "2004/05/07",
-    "publisher": "VIM",
+    "publish_date": "VIM",
+    "publisher": "2004/05/07",
     "cover_state": "good",
     "author": "Bett Enock"
   },
   {
-    "publish_date": "2022/09/12",
-    "publisher": "King",
+    "publish_date": "King",
+    "publisher": "2022/09/12",
     "cover_state": "bad",
     "author": "Bett Enock"
   },
   {
-    "publish_date": "shakepear publication",
-    "publisher": "1980/1/12",
+    "publish_date": "1980/1/12",
+    "publisher": "shakepear publication",
     "cover_state": "good",
     "author": "William ShakesPear"
+  },
+  {
+    "publish_date": "denco",
+    "publisher": "1993/10/12",
+    "cover_state": "good",
+    "author": "George Martin"
+  },
+  {
+    "publish_date": "1995/10/2",
+    "publisher": "dennn",
+    "cover_state": "bad",
+    "author": "denco boniface"
+  },
+  {
+    "publish_date": "dnana",
+    "publisher": "1992/10/12",
+    "cover_state": "good",
+    "author": "denco boniface"
   }
 ]
