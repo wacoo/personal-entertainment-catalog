@@ -69,11 +69,11 @@ class AuthorOps
     end
   end
 
-  def save_books
+  def save_authors
     @persist.save('authors', to_hash)
   end
 
-  def load_books
+  def load_authors
     hash_list = @persist.load('authors')
     to_obj(hash_list)
   end
