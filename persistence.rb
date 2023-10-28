@@ -1,7 +1,9 @@
 require 'json'
+require 'fileutils'
+
 class Persistence
   def initialize
-    # FileUtils.mkdir_p('db')
+    FileUtils.mkdir_p('db')
   end
 
   def save(file_name, obj_list)

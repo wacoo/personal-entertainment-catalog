@@ -27,6 +27,8 @@ class Main
 
   def display
     app = App.new
+    app.movies.load_movies
+    app.sops.load_sources
     app.aops.load_books
     app.gops.load_games
     loop do

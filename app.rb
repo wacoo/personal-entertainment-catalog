@@ -15,7 +15,7 @@ require_relative 'movie_ops'
 require_relative 'source_ops'
 
 class App
-  attr_reader :genre, :aops, :lops, :gops, :maops, :gnops, :mops, :sops
+  attr_reader :genre, :aops, :lops, :gops, :maops, :gnops, :mops, :sops, :movies
 
   def initialize
     # @authors = []
@@ -38,8 +38,10 @@ class App
     puts '*          Thank you for using this app.        *'
     puts '*                   Goodbye 👋                  *'
     puts '*************************************************'
-    aops.save_books
-    gops.save_games
+    @movies.save_movies
+    @sops.save_sources
+    @aops.save_books
+    @gops.save_games
     Kernel.exit
   end
 

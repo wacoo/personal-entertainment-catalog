@@ -1,8 +1,10 @@
 require_relative 'source'
+require_relative 'persistence'
 
 class SourceOps
   def initialize
     @sources = []
+    @persist = Persistence.new
   end
 
   def create_source
@@ -28,5 +30,31 @@ class SourceOps
         puts "#{idx + 1}) Source: #{source.name}"
       end
     end
+  end
+
+  def to_hash
+    hash_sources = []
+    @sources.each do |source|
+      hb = {}
+      hb['name'] = source.name
+      hash_sources << hb
+    end
+    hash_sources
+  end
+
+  def to_obj(list)
+    list.each do |hash|
+      source = Source.new(hash['name'])
+      @sources << source
+    end
+  end
+
+  def save_sources
+    @persist.save('sources', to_hash)
+  end
+
+  def load_sources
+    hash_list = @persist.load('sources')
+    to_obj(hash_list)
   end
 end
