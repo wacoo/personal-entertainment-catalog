@@ -5,10 +5,10 @@ describe AuthorOps do
 
   describe '#create_author' do
     it 'creates a new author and adds it to the authors list' do
-      allow(author_ops).to receive(:gets).and_return("John", "Doe")
+      allow(author_ops).to receive(:gets).and_return('John', 'Doe')
       author = author_ops.create_author
-      expect(author.first_name).to eq("John")
-      expect(author.last_name).to eq("Doe")
+      expect(author.first_name).to eq('John')
+      expect(author.last_name).to eq('Doe')
       expect(author_ops.authors).to include(author)
     end
   end

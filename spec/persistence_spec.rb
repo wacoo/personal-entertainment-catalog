@@ -1,8 +1,7 @@
 require 'rspec'
-require_relative '../persistence' 
+require_relative '../persistence'
 
 RSpec.describe Persistence do
-
   let(:persistence) { Persistence.new }
 
   describe '#initialize' do
@@ -19,12 +18,10 @@ RSpec.describe Persistence do
       persistence.save(file_name, obj_list)
 
       expect(File.exist?("db/#{file_name}.json")).to be_truthy
-
     end
   end
 
   describe '#load' do
-
     it 'returns an empty array for a non-existing file' do
       file_name = 'non_existing_file'
 

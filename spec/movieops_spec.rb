@@ -1,11 +1,7 @@
-# spec/movie_ops_spec.rb
-
-require 'rspec'
 require_relative '../movie_ops'
 
-RSpec.describe MovieOps do
+describe MovieOps do
   let(:movie_ops) { MovieOps.new }
-
 
   describe '#to_obj' do
     it 'converts hash to movies' do

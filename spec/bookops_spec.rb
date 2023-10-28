@@ -21,7 +21,7 @@ describe BookOps do
 
     it 'handles wrong input' do
       allow(book_ops).to receive(:gets).and_return('0', '0')
-      expect { book_ops.create_book(app) }.to_not change { book_ops.instance_variable_get(:@books).count }
+      expect { book_ops.create_book(app) }.to_not(change { book_ops.instance_variable_get(:@books).count })
     end
   end
 
@@ -46,7 +46,6 @@ describe BookOps do
 
       books = book_ops.instance_variable_get(:@books)
       expect(books.size).to eq(2)
-
     end
   end
 
@@ -54,31 +53,16 @@ describe BookOps do
     it 'converts books to a hash' do
       book1 = Book.new('2023/10/28', 'Publisher1', 'good')
       book2 = Book.new('2023/10/29', 'Publisher2', 'bad')
-  
+
       book1.author = Author.new('John', 'Doe')
       book2.author = Author.new('Jane', 'Smith')
-  
+
       book_ops.instance_variable_get(:@books) << book1
       book_ops.instance_variable_get(:@books) << book2
-  
-      expected_hash = [
-        {
-          'publish_date' => '2023/10/28',
-          'publisher' => 'Publisher1',
-          'cover_state' => 'good'
-        },
-        {
-          'publish_date' => '2023/10/29',
-          'publisher' => 'Publisher2',
-          'cover_state' => 'bad'
-        }
-      ]
-  
-      result = book_ops.to_hash
-  
-    #   expect(result).to eq(expected_hash)
+
+      book_ops.to_hash
+
+      #   expect(result).to eq(expected_hash)
     end
   end
-  
-
 end
