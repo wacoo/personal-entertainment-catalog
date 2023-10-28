@@ -79,4 +79,38 @@ class MovieOps
       Publish date: #{movie.publish_date}, Silent: #{movie.silent ? 'Yes' : 'No'}"
     end
   end
+
+  def to_hash
+    hash_movies = []
+    @movies.each do |movie|
+      hb = {}
+      hb['publish_date'] = movie.publish_date
+      hb['silent'] = movie.silent
+      hb['genre_name'] = movie.genre.name
+      hb['author'] = "#{movie.author.first_name} #{movie.author.last_name}"
+      hash_movies << hb
+    end
+    hash_movies
+  end
+
+  def to_obj(list)
+    list.each do |hash|
+      movie = Movie.new(hash['publish_date'], silent: hash['silent'])
+      author = hash['author'].split
+      movie.author = Author.new(author[0], author[1])
+      movie.genre = Genre.new(hash['genre_name'])
+      @movies << movie
+    end
+  end
+
+  def save_movies
+    File.open('movies.json', 'w') do |file|
+      file.write(JSON.generate(to_hash))
+    end
+  end
+
+  def load_movies
+    hash_list = JSON.parse(File.read('movies.json'))
+    to_obj(hash_list)
+  end
 end
