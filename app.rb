@@ -92,6 +92,7 @@ class App
     puts '*                   Goodbye 👋                  *'
     puts '*************************************************'
     aops.save_books
+    gops.save_games
     Kernel.exit
   end
 
