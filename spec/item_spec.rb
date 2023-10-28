@@ -9,52 +9,52 @@ describe Item do
   publish_date = Date.new(2010, 1, 1)
   item = Item.new(publish_date)
 
-  context "Initialization" do
-    it "has a random ID" do
+  context 'Initialization' do
+    it 'has a random ID' do
       expect(item.id).to be_an(Integer)
     end
 
-    it "is not archived by default" do
+    it 'is not archived by default' do
       expect(item.archived).to be_falsey
     end
 
-    it "has a publish date" do
+    it 'has a publish date' do
       expect(item.publish_date).to eq(publish_date)
     end
   end
 
-  context "Adding associations" do
+  context 'Adding associations' do
     genre = Genre.new('action')
     author = Author.new('john', 'doe')
     label = Label.new('mandaga', 'blue')
-    # source = Source.new('nothing')
+    source = Source.new('nothing')
 
-    it "can add a genre" do
+    it 'can add a genre' do
       item.add_genre(genre)
       expect(item.genre).to eq(genre)
       expect(genre.items).to include(item)
     end
 
-    it "can add an author" do
+    it 'can add an author' do
       item.add_author(author)
       expect(item.author).to eq(author)
       expect(author.items).to include(item)
     end
 
-    it "can add a label" do
+    it 'can add a label' do
       item.add_label(label)
       expect(item.label).to eq(label)
       expect(label.items).to include(item)
     end
 
-    # it "can add a source" do
-    #   item.add_source(source)
-    #   expect(item.source).to eq(source)
-    #   expect(source.items).to include(item)
-    # end
+    it 'can add a source' do
+      item.add_source(source)
+      expect(item.source).to eq(source)
+      expect(source.items).to include(item)
+    end
   end
 
-  context "Archiving" do
+  context 'Archiving' do
     it "can be archived if it's older than 10 years" do
       allow(Time).to receive(:now).and_return(Time.mktime(2023, 1, 1))
       item = Item.new('2010-01-01')
