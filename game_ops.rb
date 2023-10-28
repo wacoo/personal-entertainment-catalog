@@ -31,22 +31,22 @@ class GameOps
     print 'Select genre:> '
     genre = gets.chomp.to_i
 
-    if app.aops.authors.empty?
-      message('author')
-      app.aops.create_author
+    if app.lops.labels.empty?
+      message('label')
+      app.lops.create_label
     end
-    app.aops.list_all_authors
+    app.lops.list_all_labels
     puts ''
-    print 'Select author:> '
+    print 'Select label:> '
 
-    author = gets.chomp.to_i
-    [genre, author]
+    label = gets.chomp.to_i
+    [genre, label]
   end
 
   def create_game(app)
     gi = genre_author_input(app)
     genre = gi[0]
-    author = gi[1]
+    label = gi[1]
     print 'Publish date:> '
     pub_date = gets.chomp
     print 'Last played at[DATE]:> '
@@ -58,9 +58,9 @@ class GameOps
     game = nil
     multiplayer = true if multi.upcase == 'Y'
 
-    if author >= 1
+    if label >= 1
       game = Game.new(pub_date, multiplayer, last_played_date)
-      game.author = app.aops.authors[author - 1]
+      game.label = app.lops.labels[label - 1]
       game.genre = app.gnops.genres[genre - 1]
       @games << game
     else
@@ -83,8 +83,8 @@ class GameOps
       puts '😭 No game added! 😭'
     end
     @games.each_with_index do |game, idx|
-      puts "#{idx + 1}) Game ID: #{game.id}, Genre: #{game.genre.name}, Author: #{game.author.first_name} " \
-           "#{game.author.last_name}, Last played: #{game.last_played_at}"
+      puts "#{idx + 1}) Game ID: #{game.id}, Genre: #{game.genre.name}, Title: #{game.label.title}, "\
+      "Last played: #{game.last_played_at}"
     end
   end
 end
