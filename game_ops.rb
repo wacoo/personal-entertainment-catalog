@@ -99,7 +99,7 @@ class GameOps
       hb['multiplayer'] = game.multiplayer
       hb['last_played_at'] = game.last_played_at
       hb['genre_name'] = game.genre.name
-      hb['title'] = "#{game.label.title}"
+      hb['title'] = game.label.title.to_s
       hb['color'] = " #{game.label.color}"
       hash_games << hb
     end
