@@ -7,6 +7,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+- [Loom walkthrough](#loom-walkthrough)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -38,6 +39,11 @@ The Personal Entertainment Catalog is a console application that helps you organ
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
+# 🎥 loom walkthrough <a name="loom-walkthrough"></a>
+
+[Video](https://www.loom.com/share/672a61a869784be587c64fe6cb3e4fc9?sid=694125f0-d781-4915-8512-4b90a089f72f)
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
