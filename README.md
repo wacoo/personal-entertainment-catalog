@@ -79,10 +79,11 @@ bundle install
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author**
+👤 **Bett Enoch**
 
-- GitHub: [@Bettenoch](https://github.com/Bettenoch)
-- LinkedIn: [](https://www.linkedin.com/in/)
+- GitHub: [@bettenoch](https://github.com/Bettenoch)
+- Twitter: [@BybEnoch](https://twitter.com/BybEnoch)
+- LinkedIn: [@GeoIntelligence](https://www.linkedin.com/in/bett-kipngeno-enock-8b5153214/)
 
 👤 **Author**
 

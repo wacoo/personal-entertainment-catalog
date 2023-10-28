@@ -7,7 +7,7 @@ class Main
     puts '*         PERSONAL ENTERTAINMENT CATALOG        *'
     puts '*************************************************'
     puts ''
-    puts 'SELECT OPTIONS (1 - 10)'
+    puts 'SELECT OPTIONS (1 - 16)'
     puts ''
     puts '1) List all authors    9)  Create a game'
     puts '2) List all games      10) Create a book'
@@ -27,12 +27,14 @@ class Main
 
   def display
     app = App.new
+    app.aops.load_authors
     app.maops.load_albums
     app.gnops.load_genres
     app.movies.load_movies
     app.sops.load_sources
-    app.aops.load_books
+    app.bops.load_books
     app.gops.load_games
+    app.lops.load_labels
     loop do
       menu(app)
     end
