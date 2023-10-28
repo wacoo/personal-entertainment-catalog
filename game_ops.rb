@@ -83,8 +83,8 @@ class GameOps
       puts '😭 No game added! 😭'
     end
     @games.each_with_index do |game, idx|
-      puts "#{idx + 1}) Game ID: #{game.id}, Genre: #{game.genre.name}, Title: #{game.label.title}, "\
-      "Last played: #{game.last_played_at}"
+      puts "#{idx + 1}) Game ID: #{game.id}, Genre: #{game.genre.name}, Title: #{game.label.title}, " \
+           "Last played: #{game.last_played_at}"
     end
   end
 end
