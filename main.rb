@@ -27,6 +27,8 @@ class Main
 
   def display
     app = App.new
+    app.maops.load_albums
+    app.gnops.load_genres
     app.movies.load_movies
     app.sops.load_sources
     app.aops.load_books

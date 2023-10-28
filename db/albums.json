@@ -1,0 +1,16 @@
+[
+  {
+    "on_spotify": true,
+    "publish_date": "12/12/23",
+    "genre_name": "Country",
+    "label_title": "Jesus",
+    "label_color": "Red"
+  },
+  {
+    "on_spotify": true,
+    "publish_date": "12/12/23",
+    "genre_name": "Bati",
+    "label_title": "Eyesus",
+    "label_color": "Red"
+  }
+]

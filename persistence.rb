@@ -1,6 +1,5 @@
 require 'json'
 require 'fileutils'
-
 class Persistence
   def initialize
     FileUtils.mkdir_p('db')

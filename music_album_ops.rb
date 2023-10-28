@@ -1,8 +1,10 @@
 require_relative 'music_album'
+require_relative 'persistence'
 
 class MusicAlbumOps
   def initialize
     @albums = []
+    @persist = Persistence.new
   end
 
   def message(item)
@@ -77,5 +79,37 @@ class MusicAlbumOps
     @albums.each_with_index do |album, idx|
       puts "#{idx + 1}) Album ID: #{album.id}, Title: #{album.label.title}, Genre: #{album.genre.name}, Publish date: #{album.publish_date}"
     end
+  end
+
+  def to_hash
+    hash_albums = []
+    @albums.each do |album|
+      hb = {}
+      hb['on_spotify'] = album.on_spotify
+      hb['publish_date'] = album.publish_date
+      hb['genre_name'] = album.genre.name
+      hb['label_title'] = album.label.title
+      hb['label_color'] = album.label.color
+      hash_albums << hb
+    end
+    hash_albums
+  end
+
+  def to_obj(list)
+    list.each do |hash|
+      album = MusicAlbum.new(hash['on_spotify'], hash['publish_date'])
+      album.genre = Genre.new(hash['genre_name'])
+      album.label = Label.new(hash['label_title'], hash['label_color'])
+      @albums << album
+    end
+  end
+
+  def save_albums
+    @persist.save('albums', to_hash)
+  end
+
+  def load_albums
+    hash_list = @persist.load('albums')
+    to_obj(hash_list)
   end
 end
