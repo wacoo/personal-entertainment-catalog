@@ -99,7 +99,8 @@ class GameOps
       hb['multiplayer'] = game.multiplayer
       hb['last_played_at'] = game.last_played_at
       hb['genre_name'] = game.genre.name
-      hb['author'] = "#{game.author.first_name} #{game.author.last_name}"
+      hb['title'] = "#{game.label.title}"
+      hb['color'] = " #{game.label.color}"
       hash_games << hb
     end
     hash_games
@@ -108,8 +109,7 @@ class GameOps
   def to_obj(list)
     list.each do |hash|
       game = Game.new(hash['publish_date'], hash['multiplayer'], hash['last_played_at'])
-      author = hash['author'].split
-      game.author = Author.new(author[0], author[1])
+      game.label = Label.new(hash['title'], hash['color'])
       game.genre = Genre.new(hash['genre_name'])
       @games << game
     end
