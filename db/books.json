@@ -1,13 +1,13 @@
 [
   {
-    "publish_date": "VIM",
-    "publisher": "2004/05/07",
+    "publish_date": "2004/05/07",
+    "publisher": "VIM",
     "cover_state": "good",
     "author": "Bett Enock"
   },
   {
-    "publish_date": "King",
-    "publisher": "2022/09/12",
+    "publish_date": "2022/09/12",
+    "publisher": "King",
     "cover_state": "bad",
     "author": "Bett Enock"
   }
