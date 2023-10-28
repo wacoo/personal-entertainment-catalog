@@ -1,0 +1,14 @@
+[
+  {
+    "publish_date": "12/12/23",
+    "silent": true,
+    "genre_name": "Fantasy",
+    "author": "John Mac"
+  },
+  {
+    "publish_date": "12/12/23",
+    "silent": false,
+    "genre_name": "Action",
+    "author": "Lily Mac Mac"
+  }
+]

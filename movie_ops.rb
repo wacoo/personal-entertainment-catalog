@@ -1,8 +1,10 @@
 require_relative 'movie'
+require_relative 'persistence'
 
 class MovieOps
   def initialize
     @movies = []
+    @persist = Persistence.new
   end
 
   def message(item)
@@ -78,5 +80,37 @@ class MovieOps
       puts "#{idx + 1}) Movie ID: #{movie.id}, Title: #{movie.author.first_name} #{movie.author.last_name}'s Movie, Genre: #{movie.genre.name},
       Publish date: #{movie.publish_date}, Silent: #{movie.silent ? 'Yes' : 'No'}"
     end
+  end
+
+  def to_hash
+    hash_books = []
+    @movies.each do |movie|
+      hb = {}
+      hb['publish_date'] = movie.publish_date
+      hb['silent'] = movie.silent
+      hb['genre_name'] = movie.genre.name
+      hb['author'] = "#{movie.author.first_name} #{movie.author.last_name}"
+      hash_books << hb
+    end
+    hash_books
+  end
+
+  def to_obj(list)
+    list.each do |hash|
+      author = hash['author'].split
+      movie = Movie.new(hash['publish_date'], silent: hash['silent'])
+      movie.author = Author.new(author[0], author[1])
+      movie.genre = Genre.new(hash['genre_name'])
+      @movies << movie
+    end
+  end
+
+  def save_movies
+    @persist.save('movies', to_hash)
+  end
+
+  def load_movies
+    hash_list = @persist.load('movies')
+    to_obj(hash_list)
   end
 end
