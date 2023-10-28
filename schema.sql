@@ -12,6 +12,21 @@ CREATE TABLE sources (
     name TEXT NOT NULL
 );
 
+CREATE TABLE author (
+    id INTEGER PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+
+CREATE TABLE game (
+    id INTEGER PRIMARY KEY,
+    publish_date DATE,
+    multiplayer BOOLEAN,
+    last_played_at DATE
+    label_id INTEGER,
+    genre_id INTEGER
+);
+
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     published_date DATE NOT NULL,
@@ -26,7 +41,7 @@ CREATE TABLE books (
     CONSTRAINT fk_label FOREIGN KEY (label_id) REFERENCES labels (id)
     CONSTRAINT fk_source FOREIGN KEY (source_id) REFERENCES sources (id)
 
-)
+);
 
 CREATE TABLE labels (
   id SERIAL PRIMARY KEY,
