@@ -7,6 +7,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+- [Video Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -38,6 +39,11 @@ The Personal Entertainment Catalog is a console application that helps you organ
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
+# 🎥 Video Presentation <a name="video-presentation"></a>
+
+[Video-Presentation Link](https://www.loom.com/share/672a61a869784be587c64fe6cb3e4fc9?sid=694125f0-d781-4915-8512-4b90a089f72f)
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -79,10 +85,11 @@ bundle install
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author**
+👤 **Bett Enoch**
 
-- GitHub: [@Bettenoch](https://github.com/Bettenoch)
-- LinkedIn: [](https://www.linkedin.com/in/)
+- GitHub: [@bettenoch](https://github.com/Bettenoch)
+- Twitter: [@BybEnoch](https://twitter.com/BybEnoch)
+- LinkedIn: [@GeoIntelligence](https://www.linkedin.com/in/bett-kipngeno-enock-8b5153214/)
 
 👤 **Author**
 
@@ -97,7 +104,7 @@ bundle install
 👤 **Author**
 
 - GitHub: [@firepicaso](https://github.com/firepicaso)
-- LinkedIn: [](www.linkedin.com/in/)
+- LinkedIn: [mustakim-masum](https://www.linkedin.com/in/mustakim-masum/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
